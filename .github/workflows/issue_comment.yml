@@ -1,0 +1,16 @@
+# whenever new issue is openend, this workflow will create comment on it
+
+name: Create a comment on the new issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment-with-action:
+   runs-on: ubuntu-latest
+   steps:
+     - name: "dump github context"
+       run: echo '${{ toJSON(github.event)}}' | jq
+       shell: bash
+       
